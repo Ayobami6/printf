@@ -20,6 +20,7 @@ int _printf(const char *format, ...)
 		{"%o", printf_oct}, {"%x", printf_hex},
 		{"%X", printf_HEX}, {"%S", printf_exclusive_string},
 		{"%p", printf_pointer}};
+	
 	va_start(args, format);
 	if (format == NULL || format[0] == '%' && format[1] != '\0')
 		return (-1);
