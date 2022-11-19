@@ -32,7 +32,7 @@ Here:
 		{
 			if (match[o].id[0] == format[i] && match[o].id[1] == format[i + 1])
 			{
-				len += match[o].fp(args);
+				len += match[o].f(args);
 				i = i + 2;
 				goto Here;
 			}
