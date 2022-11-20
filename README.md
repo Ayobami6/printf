@@ -12,3 +12,15 @@ Contributors
 </ol>
 
 ## Tasks
+
+### Task 0 \_printf.c
+
+Write the printf program implementing all the functionality from all other task programs
+
+### Task 1 print_dec-int.c
+
+Add print decimal and integer functionality
+
+### Task 2
+
+Add printf binary functionality

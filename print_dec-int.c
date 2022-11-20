@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * printf_int - prints integer
- * @args: argument to print
- * Return: number of characters printed
+ * printf_int - prints out integers
+ * @args: arguments
+ * Return: returns number of char
  */
 int printf_int(va_list args)
 {
@@ -45,8 +45,8 @@ int printf_int(va_list args)
 
 /**
  * printf_dec - prints decimal
- * @args: argument to print
- * Return: number of characters printed
+ * @args: arguments
+ * Return: number of char
  */
 
 int printf_dec(va_list args)
