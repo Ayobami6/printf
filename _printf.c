@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 		{"%r", printf_srev}, {"%R", printf_rot13},
 		{"%b", printf_bin}, {"%u", printf_unsigned},
 		{"%o", printf_oct}, {"%x", printf_hex},
-		{"%X", printf_HEX}, {"%S", printf_exclusive_string},
+		{"%X", printf_bigHEX}, {"%S", printf_exclusive_string},
 		{"%p", printf_pointer}};
 
 	va_start(args, format);
