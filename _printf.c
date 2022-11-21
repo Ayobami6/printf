@@ -12,14 +12,14 @@ int _printf(const char *format, ...)
 	int i = 0, o, len = 0;
 
 	matchConversion match[] = {
-		{"%s", printf_string},
-		{"%c", printf_char}, {"%%", printf_37},
-		{"%i", printf_int}, {"%d", printf_dec},
-		{"%r", printf_srev}, {"%R", printf_rot13},
-		{"%b", printf_bin}, {"%u", printf_unsigned},
-		{"%o", printf_oct}, {"%x", printf_hex},
-		{"%X", printf_bigHEX}, {"%S", printf_exclusive_string},
-		{"%p", printf_pointer}};
+		{"%s", print_string},
+		{"%c", print_char}, {"%%", print_percent},
+		{"%i", print_int}, {"%d", print_dec},
+		{"%r", print_revStr}, {"%R", print_rot13},
+		{"%b", print_bin}, {"%u", print_unsigned},
+		{"%o", print_oct}, {"%x", print_hex},
+		{"%X", print_bigHEX}, {"%S", printf_exclusive_string},
+		{"%p", print_pointer}};
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] != '\0'))

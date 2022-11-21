@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * printf_string - print a string.
+ * print_string - print a string.
  * @arg: argumen t.
  * Return: the length of the string.
  */
-int printf_string(va_list arg)
+int print_string(va_list arg)
 {
 	char *s;
 	int i, len;
@@ -56,11 +56,11 @@ int print_revStr(va_list args)
 }
 
 /**
- * printf_rot13 - encode a string by rotating for 13char
+ * print_rot13 - encode a string by rotating for 13char
  * @args: string arg
  * Return: 1
  */
-int printf_rot13(va_list args)
+int print_rot13(va_list args)
 {
 	int i, j;
 	char *s;

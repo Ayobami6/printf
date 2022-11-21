@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * printf_bin - prints the binary of the char args.
+ * print_bin - prints the binary of the char args.
  * @val: args.
  * Return: returns number not zero.
  */
-int printf_bin(va_list val)
+int print_bin(va_list val)
 {
 	int flag, count, i, j, k;
 	unsigned int arg, a;

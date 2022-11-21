@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * printf_hex - prints hexadecimal number
+ * print_hex - prints hexadecimal number
  * @args: args
  * Return: returns positive integers
  */
 
-int printf_hex(va_list args)
+int print_hex(va_list args)
 {
 	int i, count;
 	int *arr;
@@ -41,11 +41,11 @@ int printf_hex(va_list args)
 }
 
 /**
- * printf_bigHEX - prints hexadecimal number in Caps
+ * print_bigHEX - prints hexadecimal number in Caps
  * @args: args
  * Return: returns posiive number
  */
-int printf_bigHEX(va_list args)
+int print_bigHEX(va_list args)
 {
 	int i, count;
 	int *arr;
@@ -79,11 +79,11 @@ int printf_bigHEX(va_list args)
 	return (count);
 }
 /**
- * printf_oct - prints oct number in
+ * print_oct - prints oct number in
  * @args: args
  * Return: returns a positive number
  */
-int printf_oct(va_list args)
+int print_oct(va_list args)
 {
 	int i, count;
 	int *arr;
@@ -116,11 +116,11 @@ int printf_oct(va_list args)
 }
 
 /**
- * printf_unsigned - prints unsigned integer
+ * print_unsigned - prints unsigned integer
  * @args: argument to print
  * Return: number of characters printed
  */
-int printf_unsigned(va_list args)
+int print_unsigned(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int num, last = n % 10, digit, exp = 1;
