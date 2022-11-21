@@ -2,14 +2,15 @@
 
 /**
  * printf_hex - prints hexadecimal number
- * @val: args
+ * @args: args
  * Return: returns positive integers
-*/
+ */
 
 int printf_hex(va_list args)
 {
 	int i, count;
 	int *arr;
+
 	count = 0;
 	unsigned int num, tmp;
 
@@ -41,13 +42,14 @@ int printf_hex(va_list args)
 
 /**
  * printf_bigHEX - prints hexadecimal number in Caps
- * @val: args
+ * @args: args
  * Return: returns posiive number
-*/
+ */
 int printf_bigHEX(va_list args)
 {
 	int i, count;
 	int *arr;
+
 	count = 0;
 	unsigned int num, tmp;
 
@@ -76,16 +78,16 @@ int printf_bigHEX(va_list args)
 	free(arr);
 	return (count);
 }
-
 /**
- * printf_oct - prints oct number in 
- * @val: args
+ * printf_oct - prints oct number in
+ * @args: args
  * Return: returns a positive number
-*/
+ */
 int printf_oct(va_list args)
 {
 	int i, count;
 	int *arr;
+
 	count = 0;
 	unsigned int num, tmp;
 
@@ -122,7 +124,7 @@ int printf_unsigned(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int num, last = n % 10, digit, exp = 1;
-	int  i = 1;
+	int i = 1;
 
 	n = n / 10;
 	num = n;
