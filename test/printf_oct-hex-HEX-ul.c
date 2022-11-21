@@ -8,12 +8,15 @@
 
 int print_hex(va_list args)
 {
-	unsigned int num = va_arg(args, unsigned int);
-	unsigned int tmp = num;
 	int i, count;
 	int *arr;
 
 	count = 0;
+	unsigned int num, tmp;
+
+	num = va_arg(args, unsigned int);
+	tmp = num;
+
 	while (num / 16 != 0)
 	{
 		num /= 16;
@@ -44,12 +47,15 @@ int print_hex(va_list args)
  */
 int print_bigHEX(va_list args)
 {
-	unsigned int num = va_arg(args, unsigned int);
-	unsigned int tmp = num;
 	int i, count;
 	int *arr;
 
 	count = 0;
+	unsigned int num, tmp;
+
+	num = va_arg(args, unsigned int);
+	tmp = num;
+
 	while (num / 16 != 0)
 	{
 		num /= 16;
@@ -79,12 +85,15 @@ int print_bigHEX(va_list args)
  */
 int print_oct(va_list args)
 {
-	unsigned int num = va_arg(args, unsigned int);
-	unsigned int tmp = num;
 	int i, count;
 	int *arr;
 
 	count = 0;
+	unsigned int num, tmp;
+
+	num = va_arg(args, unsigned int);
+	tmp = num;
+
 	while (num / 8 != 0)
 	{
 		num /= 8;

@@ -20,27 +20,34 @@ typedef struct format
 	int (*f)();
 } matchConversion;
 
-int printf_pointer(va_list val);
-int printf_hex_aux(unsigned long int num);
-int printf_HEX_aux(unsigned int num);
-int printf_exclusive_string(va_list val);
-int printf_HEX(va_list val);
-int printf_hex(va_list val);
-int printf_oct(va_list val);
-int printf_unsigned(va_list args);
-int printf_bin(va_list val);
-int printf_srev(va_list args);
-int printf_rot13(va_list args);
-int printf_int(va_list args);
-int printf_dec(va_list args);
+typedef struct flags
+{
+	int add;
+	int space;
+	int hash;
+} flagsStruct;
+
+int print_pointer(va_list val);
+int print_hex_aux(unsigned long int num);
+int print_HEX_aux(unsigned int num);
+int print_exclusive_string(va_list val);
+int print_bigHEX(va_list val);
+int print_hex(va_list val);
+int print_oct(va_list val);
+int print_unsigned(va_list args);
+int print_bin(va_list val);
+int print_revStr(va_list args);
+int print_rot13(va_list args);
+int print_int(va_list args);
+int print_dec(va_list args);
 int _strlen(char *s);
 int *_strcpy(char *dest, char *src);
 int _strlenc(const char *s);
 int rev_string(char *s);
 int _strlenc(const char *s);
-int printf_37(void);
-int printf_char(va_list val);
-int printf_string(va_list val);
+int print_percent(void);
+int print_char(va_list val);
+int print_string(va_list val);
 int _putchar(char c);
 int _printf(const char *format, ...);
 

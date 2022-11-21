@@ -10,7 +10,7 @@ int print_string(va_list arg)
 	char *s;
 	int i, len;
 
-	s = va_arg(arg, char*);
+	s = va_arg(arg, char *);
 	if (s == NULL)
 	{
 		s = "(null)";
@@ -100,7 +100,7 @@ int print_char(va_list args)
 {
 	char s;
 
-	s = va_arg(args, int);
+	s = va_arg(args, char);
 	_putchar(s);
 	return (1);
 }

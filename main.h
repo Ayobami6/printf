@@ -28,9 +28,9 @@ typedef struct flags
 } flagsStruct;
 
 int print_pointer(va_list val);
-int printf_hex_aux(unsigned long int num);
-int printf_HEX_aux(unsigned int num);
-int printf_exclusive_string(va_list val);
+int print_hex_aux(unsigned long int num);
+int print_HEX_aux(unsigned int num);
+int print_exclusive_string(va_list val);
 int print_bigHEX(va_list val);
 int print_hex(va_list val);
 int print_oct(va_list val);
