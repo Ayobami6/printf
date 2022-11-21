@@ -41,18 +41,17 @@ int print_string(va_list arg)
 
 int print_revStr(va_list args)
 {
-	char *s;
-	int j, i = 0;
+	char *s = va_arg(args, char*);
+	int i;
+	int j = 0;
 
-	s = va_arg(args, char *);
-
-	while (s[i] != '\0')
-		i++;
-
-	for (j = i - 1; j >= 0; j--)
-		_putchar(s[j]);
-
-	return (1);
+	if (s == NULL)
+		s = "(null)";
+	while (s[j] != '\0')
+		j++;
+	for (i = j - 1; i >= 0; i--)
+		_putchar(s[i]);
+	return (j);
 }
 
 /**
@@ -62,34 +61,35 @@ int print_revStr(va_list args)
  */
 int print_rot13(va_list args)
 {
-	int i, j;
-	char *s;
+	int i, j, counter = 0;
+	int k = 0;
+	char *s = va_arg(args, char*);
+	char alpha[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+	char beta[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
 
-	char l[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char r13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-
-	s = va_arg(args, char *);
-
-	for (i = 0; s[i] != '\0'; i++)
+	if (s == NULL)
+		s = "(null)";
+	for (i = 0; s[i]; i++)
 	{
-		if (s[i] < 'A' || (s[i] > 'Z' && s[i] < 'a') || s[i] > 'z')
-			_putchar(s[i]);
-
-		else
+		k = 0;
+		for (j = 0; alpha[j] && !k; j++)
 		{
-
-			for (j = 0; l[j] != '\0'; j++)
+			if (s[i] == alpha[j])
 			{
-				if (s[i] == l[j])
-				{
-					_putchar(r13[j]);
-				}
+				_putchar(beta[j]);
+				counter++;
+				k = 1;
 			}
 		}
+		if (!k)
+		{
+			_putchar(s[i]);
+			counter++;
+		}
 	}
-
-	return (1);
+	return (counter);
 }
+
 
 /**
  * print_char - prints char
