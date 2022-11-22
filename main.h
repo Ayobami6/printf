@@ -51,6 +51,9 @@ int _printf(const char *format, ...);
 /* get_print */
 int (*get_print(char s))(va_list, flags_t *);
 
+/* Conversion specifier functions */
+mk_buffer(*get_format(const char *format))(mk_buffer, va_list);
+
 /* get_flag */
 int get_flag(char s, flags_t *f);
 
