@@ -1,31 +1,25 @@
 #include "main.h"
 
 /**
- * print_pointer - prints an hexgecimal number
- * @args: arguments
- * Return: counter
+ * print_address - prints address of input in hexa format
+ * @l: va_list arguments from _printf
+ * @f: pointer to the struct flags that determines
+ * if a flag is passed to _printf
+ * Return: number of char printed
  */
-int print_pointer(va_list args)
+int print_address(va_list l, flags_t *f)
 {
-	void *prt;
-	char *s = "(nil)";
-	long int a;
-	int b;
-	int i;
+	char *str;
+	unsigned long int p = va_arg(l, unsigned long int);
 
-	prt = va_arg(args, void *);
-	if (prt == NULL)
-	{
-		for (i = 0; s[i] != '\0'; i++)
-		{
-			_putchar(s[i]);
-		}
-		return (i);
-	}
+	register int count = 0;
 
-	a = (unsigned long int)prt;
-	_putchar('0');
-	_putchar('x');
-	b = print_hex_aux(a);
-	return (b + 2);
+	(void)f;
+
+	if (!p)
+		return (_puts("(nil)"));
+	str = convert(p, 16, 1);
+	count += _puts("0x");
+	count += _puts(str);
+	return (count);
 }

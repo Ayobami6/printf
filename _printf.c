@@ -1,47 +1,46 @@
 #include "main.h"
-
 /**
- * _printf - printf function main source code
- * @format: the format code args
- * Takes variable number arguments
- * Return: returns string length
+ * _printf - produces output according to a format
+ * @format: format string containing the characters and the specifiers
+ * Description: this function will call the get_print() function that will
+ * determine which printing function to call depending on the conversion
+ * specifiers contained into fmt
+ * Return: length of the formatted output string
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int i = 0, o, len = 0;
+	int (*pfunc)(va_list, flags_t *);
+	const char *p;
+	va_list arguments;
+	flags_t flags = {0, 0, 0};
 
-	matchConversion match[] = {
-		{"%s", print_string},
-		{"%c", print_char}, {"%%", print_percent},
-		{"%i", print_int}, {"%d", print_dec},
-		{"%r", print_revStr}, {"%R", print_rot13},
-		{"%b", print_bin}, {"%u", print_unsigned},
-		{"%o", print_oct}, {"%x", print_hex},
-		{"%X", print_bigHEX}, {"%S", print_exclusive_string},
-		{"%p", print_pointer}};
+	register int count = 0;
 
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] != '\0'))
+	va_start(arguments, format);
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-Here:
-	while (format[i] != '\0')
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = format; *p; p++)
 	{
-		o = 13;
-		while (o >= 0)
+		if (*p == '%')
 		{
-			if (match[o].id[0] == format[i] && match[o].id[1] == format[i + 1])
+			p++;
+			if (*p == '%')
 			{
-				len += match[o].f(args);
-				i = i + 2;
-				goto Here;
+				count += _putchar('%');
+				continue;
 			}
-			o--;
-		}
-		_putchar(format[i]);
-		len++;
-		i++;
+			while (get_flag(*p, &flags))
+				p++;
+			pfunc = get_print(*p);
+			count += (pfunc)
+				? pfunc(arguments, &flags)
+				: _printf("%%%c", *p);
+		} else
+			count += _putchar(*p);
 	}
-	va_end(args);
-	return (len);
+	_putchar(-1);
+	va_end(arguments);
+	return (count);
 }
